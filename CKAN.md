@@ -112,16 +112,6 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ### k. Restart jetty9 
     sudo service jetty9 restart
 
-### 5.1. https://www.liquidweb.com/kb/install-oracle-java-ubuntu-18-04/
-### 5.2. http://deeplearning.lipingyang.org/2017/04/30/install-apache-solr-on-ubuntu-16-04/
-    cd ~/Downloads
-    wget http://archive.apache.org/dist/lucene/solr/6.5.0/solr-6.5.0.zip
-    unzip solr-6.5.0.zip
-    cd solr-6.5.0/bin
-    sudo ./install_solr_service.sh ../../solr-6.5.0.zip
-    cd /opt/solr/bin
-### 5.3. https://github.com/ckan/ckan/wiki/Install-and-use-Solr-6.5-with-CKAN
-
 ## 6. Link to who.ini
 ### a. ``who.ini`` (the Repoze.who configuration file) needs to be accessible in the same directory as your CKAN config file, so create a symlink to it:
     ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
