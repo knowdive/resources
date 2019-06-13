@@ -1,0 +1,271 @@
+book	 everypromotedthing creativework abstractthing
+celltype	 everypromotedthing abstractthing
+physicalaction	 everypromotedthing abstractthing
+species	 everypromotedthing abstractthing
+muscle	 bodypart everypromotedthing item
+abstractthing	 everypromotedthing
+eventoutcome	 everypromotedthing abstractthing event
+retailstore	 location building everypromotedthing geolocatablething
+mlconference	 everypromotedthing abstractthing event conference
+bird	 animal everypromotedthing species abstractthing vertebrate agent
+grain	 everypromotedthing item food fruit
+color	 everypromotedthing abstractthing
+school	 everypromotedthing organization humanagent agent
+personcanada	 person everypromotedthing humanagent personnorthamerica personbylocation agent
+mountain	 location everypromotedthing geolocatablething
+poem	 everypromotedthing creativework abstractthing
+dayofweek	 everypromotedthing abstractthing date
+agriculturalproduct	 everypromotedthing item
+date	 everypromotedthing abstractthing
+monarch	 person everypromotedthing humanagent agent
+astronaut	 person everypromotedthing humanagent agent
+fish	 animal everypromotedthing species abstractthing vertebrate agent
+personeurope	 person everypromotedthing humanagent personbylocation agent
+cave	 location everypromotedthing
+programminglanguage	 everypromotedthing abstractthing
+olympics	 everypromotedthing abstractthing event sportsevent
+personus	 person everypromotedthing humanagent personnorthamerica personbylocation agent
+protein	 everypromotedthing abstractthing
+visualartist	 person everypromotedthing humanagent agent
+chemical	 everypromotedthing abstractthing
+buildingmaterial	 everypromotedthing abstractthing
+event	 everypromotedthing abstractthing
+url	 location everypromotedthing website
+televisionnetwork	 mediacompany everypromotedthing organization humanagent company agent
+landscapefeatures	 location everypromotedthing
+hallwayitem	 everypromotedthing item householditem
+mldataset	 everypromotedthing abstractthing
+lyrics	 everypromotedthing creativework abstractthing
+nerve	 bodypart everypromotedthing item
+researchproject	 everypromotedthing abstractthing
+weapon	 everypromotedthing item
+braintissue	 bodypart everypromotedthing item
+creditunion	 everypromotedthing organization humanagent company agent
+personmexico	 person everypromotedthing humanagent personnorthamerica personbylocation agent
+nut	 everypromotedthing item food fruit
+hospital	 location building everypromotedthing geolocatablething
+politicsissue	 everypromotedthing abstractthing
+boardgame	 everypromotedthing traditionalgame abstractthing game
+musicinstrument	 everypromotedthing item
+gamescore	 everypromotedthing abstractthing
+transportation	 attraction location everypromotedthing
+cardgame	 everypromotedthing traditionalgame abstractthing game
+currency	 everypromotedthing abstractthing
+condiment	 everypromotedthing item food
+politicsblog	 location mediacompany everypromotedthing organization humanagent website company blog agent publication
+geopoliticalentity	 everypromotedthing abstractthing
+terroristorganization	 everypromotedthing organization humanagent agent
+religion	 everypromotedthing abstractthing
+economicsector	 everypromotedthing abstractthing
+videogamesystem	 everypromotedthing item consumerelectronicitem
+nonneginteger	 everypromotedthing abstractthing
+politicsbill	 everypromotedthing abstractthing
+year	 everypromotedthing abstractthing date
+reptile	 animal everypromotedthing species abstractthing vertebrate agent
+physicsterm	 everypromotedthing abstractthing
+fruit	 everypromotedthing item food
+politicalparty	 geopoliticalentity politicsgroup everypromotedthing organization humanagent abstractthing geopoliticalorganization agent nongovorganization
+lake	 location everypromotedthing geolocatablething
+product	 everypromotedthing item
+bakedgood	 everypromotedthing item food
+agent	 everypromotedthing
+furniture	 everypromotedthing item householditem
+country	 geopoliticalentity location everypromotedthing organization geolocatablething humanagent abstractthing geopoliticalorganization agent geopoliticallocation
+parlourgame	 everypromotedthing traditionalgame abstractthing game
+charactertrait	 everypromotedthing abstractthing
+personaustralia	 person everypromotedthing humanagent personbylocation agent
+musicalbum	 everypromotedthing creativework abstractthing
+room	 location everypromotedthing
+model	 person everypromotedthing humanagent agent
+scientist	 person everypromotedthing humanagent agent
+musicgenre	 everypromotedthing abstractthing
+professionalorganization	 everypromotedthing organization humanagent agent
+legume	 everypromotedthing item food fruit
+personnorthamerica	 person everypromotedthing humanagent personbylocation agent
+tool	 everypromotedthing item
+trainstation	 location building everypromotedthing geolocatablething
+physicalcharacteristic	 everypromotedthing abstractthing
+organization	 everypromotedthing humanagent agent
+farm	 location everypromotedthing
+personafrica	 person everypromotedthing humanagent personbylocation agent
+conference	 everypromotedthing abstractthing event
+planet	 location everypromotedthing
+politicsgroup	 geopoliticalentity everypromotedthing organization humanagent abstractthing geopoliticalorganization agent
+tableitem	 everypromotedthing item householditem
+journalist	 person everypromotedthing humanagent agent
+convention	 everypromotedthing abstractthing event
+automobilemaker	 everypromotedthing organization humanagent company agent
+female	 person everypromotedthing humanagent agent
+actor	 person everypromotedthing humanagent agent
+automobilemodel	 everypromotedthing item vehicle product
+professor	 person everypromotedthing humanagent agent
+geolocatablething	 everypromotedthing
+dateliteral	 everypromotedthing abstractthing date
+nondiseasecondition	 physiologicalcondition everypromotedthing abstractthing
+mediatype	 everypromotedthing item
+nongovorganization	 geopoliticalentity politicsgroup everypromotedthing organization humanagent abstractthing geopoliticalorganization agent
+attraction	 location everypromotedthing
+politicaloffice	 everypromotedthing abstractthing
+mlsoftware	 everypromotedthing item software product
+placeofworship	 location building everypromotedthing geolocatablething
+clothing	 everypromotedthing item
+stadiumoreventvenue	 attraction location building everypromotedthing geolocatablething
+lymphnode	 bodypart everypromotedthing item
+musicartist	 everypromotedthing organization humanagent agent
+island	 geopoliticalentity location everypromotedthing abstractthing geopoliticallocation
+visualartmovement	 everypromotedthing abstractthing
+bedroomitem	 everypromotedthing item householditem
+geometricshape	 everypromotedthing abstractthing
+sportsteam	 everypromotedthing organization geolocatablething humanagent agent
+software	 everypromotedthing item product
+personalcareitem	 everypromotedthing item product
+musicsong	 everypromotedthing creativework abstractthing
+humanagent	 everypromotedthing agent
+televisionshow	 everypromotedthing creativework abstractthing
+bank	 everypromotedthing organization humanagent company agent
+insect	 animal invertebrate everypromotedthing arthropod species abstractthing agent
+personsouthamerica	 person everypromotedthing humanagent personbylocation agent
+sport	 everypromotedthing abstractthing
+animal	 everypromotedthing species abstractthing agent
+bodypart	 everypromotedthing item
+wine	 everypromotedthing item food beverage
+hobby	 everypromotedthing abstractthing
+director	 person everypromotedthing humanagent agent
+museum	 attraction location building everypromotedthing geolocatablething
+vertebrate	 animal everypromotedthing species abstractthing agent
+emotion	 everypromotedthing abstractthing
+mammal	 animal everypromotedthing species abstractthing vertebrate agent
+crimeorcharge	 everypromotedthing abstractthing event
+movie	 everypromotedthing creativework abstractthing
+perceptionaction	 everypromotedthing abstractthing
+county	 geopoliticalentity location everypromotedthing organization humanagent abstractthing geopoliticalorganization agent geopoliticallocation
+aquarium	 attraction location everypromotedthing
+language	 everypromotedthing abstractthing
+newspaper	 mediacompany everypromotedthing organization humanagent company agent publication
+architect	 person everypromotedthing humanagent agent
+invertebrate	 animal everypromotedthing species abstractthing agent
+person	 everypromotedthing humanagent agent
+sociopolitical	 everypromotedthing abstractthing
+recipe	 everypromotedthing abstractthing
+disease	 physiologicalcondition everypromotedthing abstractthing
+street	 location everypromotedthing geolocatablething
+month	 everypromotedthing abstractthing date
+vehicle	 everypromotedthing item product
+filmfestival	 everypromotedthing abstractthing event
+politicianus	 person politician everypromotedthing personus humanagent personnorthamerica personbylocation agent
+perceptionevent	 everypromotedthing abstractthing
+airport	 location building everypromotedthing geolocatablething
+sportsleague	 everypromotedthing organization humanagent agent
+arthropod	 animal invertebrate everypromotedthing species abstractthing agent
+zoo	 attraction location everypromotedthing
+shoppingmall	 location building everypromotedthing geolocatablething
+athlete	 person everypromotedthing humanagent agent
+musician	 person everypromotedthing humanagent agent
+artery	 bodypart everypromotedthing item
+mlmetric	 everypromotedthing abstractthing
+chef	 person everypromotedthing humanagent agent
+archaea	 everypromotedthing species abstractthing
+everypromotedthing	
+male	 person everypromotedthing humanagent agent
+zipcode	 location everypromotedthing
+personbylocation	 person everypromotedthing humanagent agent
+crustacean	 animal invertebrate everypromotedthing arthropod species abstractthing agent
+medicalprocedure	 everypromotedthing abstractthing
+item	 everypromotedthing
+awardtrophytournament	 everypromotedthing abstractthing
+company	 everypromotedthing organization humanagent agent
+arachnid	 animal invertebrate everypromotedthing arthropod species abstractthing agent
+personasia	 person everypromotedthing humanagent personbylocation agent
+beverage	 everypromotedthing item food
+vegetable	 everypromotedthing item food
+sportsteamposition	 everypromotedthing abstractthing
+kitchenitem	 everypromotedthing item householditem
+highschool	 everypromotedthing organization humanagent school agent
+stateorprovince	 geopoliticalentity location everypromotedthing organization geolocatablething humanagent abstractthing geopoliticalorganization agent geopoliticallocation
+port	 attraction location everypromotedthing
+buildingfeature	 everypromotedthing item
+beach	 location everypromotedthing
+llcoordinate	 everypromotedthing abstractthing
+academicfield	 everypromotedthing abstractthing
+tradeunion	 everypromotedthing organization humanagent agent
+geopoliticalorganization	 geopoliticalentity everypromotedthing organization humanagent abstractthing agent
+geopoliticallocation	 geopoliticalentity location everypromotedthing abstractthing
+mlarea	 everypromotedthing abstractthing
+amphibian	 animal everypromotedthing species abstractthing vertebrate agent
+ethnicgroup	 everypromotedthing abstractthing
+writer	 person everypromotedthing humanagent agent
+ceo	 person everypromotedthing humanagent agent
+videogame	 item everypromotedthing software abstractthing game product
+judge	 person everypromotedthing humanagent agent
+game	 everypromotedthing abstractthing
+nonprofitorganization	 everypromotedthing organization humanagent agent
+building	 location everypromotedthing geolocatablething
+musicfestival	 everypromotedthing abstractthing event
+flooritem	 everypromotedthing item householditem
+publication	 mediacompany everypromotedthing organization humanagent company agent
+creativework	 everypromotedthing abstractthing
+food	 everypromotedthing item
+consumerelectronicitem	 everypromotedthing item
+bridge	 location building everypromotedthing geolocatablething
+continent	 geopoliticalentity location everypromotedthing abstractthing geopoliticallocation
+bacteria	 everypromotedthing species abstractthing
+hotel	 location building everypromotedthing geolocatablething
+personantarctica	 person everypromotedthing humanagent personbylocation agent
+radiostation	 mediacompany everypromotedthing organization geolocatablething humanagent company agent
+winery	 everypromotedthing organization humanagent company agent
+televisionstation	 mediacompany everypromotedthing organization geolocatablething humanagent company agent
+fungus	 everypromotedthing item species abstractthing
+blog	 location mediacompany everypromotedthing organization website humanagent company agent publication
+bathroomitem	 everypromotedthing item householditem
+restaurant	 location building everypromotedthing geolocatablething
+plant	 everypromotedthing item species abstractthing
+race	 everypromotedthing abstractthing event sportsevent
+trail	 location everypromotedthing
+sportsequipment	 everypromotedthing item
+recordlabel	 mediacompany everypromotedthing organization humanagent company agent
+drug	 everypromotedthing item product
+university	 everypromotedthing organization geolocatablething humanagent school agent
+mlauthor	 person everypromotedthing humanagent agent
+governmentorganization	 geopoliticalentity politicsgroup everypromotedthing organization humanagent abstractthing geopoliticalorganization agent
+jobposition	 everypromotedthing abstractthing profession
+wallitem	 everypromotedthing item householditem
+website	 location everypromotedthing
+coach	 person everypromotedthing humanagent agent
+celebrity	 person everypromotedthing humanagent agent
+mollusk	 animal invertebrate everypromotedthing species abstractthing agent
+visualartform	 everypromotedthing creativework abstractthing
+weatherphenomenon	 everypromotedthing abstractthing event
+election	 everypromotedthing abstractthing event
+mediacompany	 everypromotedthing organization humanagent company agent
+householditem	 everypromotedthing item
+skiarea	 attraction location everypromotedthing
+traditionalgame	 everypromotedthing abstractthing game
+grandprix	 everypromotedthing abstractthing event sportsevent
+river	 location everypromotedthing geolocatablething
+sportsevent	 everypromotedthing abstractthing event
+sportsgame	 everypromotedthing event abstractthing game sportsevent
+officeitem	 everypromotedthing item
+city	 geopoliticalentity location everypromotedthing organization geolocatablething humanagent abstractthing geopoliticalorganization agent geopoliticallocation
+location	 everypromotedthing
+biotechcompany	 everypromotedthing organization humanagent company agent
+highway	 location everypromotedthing
+vein	 bodypart everypromotedthing item
+cheese	 everypromotedthing item food
+militaryeventtype	 everypromotedthing abstractthing event
+automobileengine	 everypromotedthing item product
+comedian	 person everypromotedthing humanagent agent
+cognitiveactions	 everypromotedthing abstractthing
+mlalgorithm	 everypromotedthing abstractthing
+bone	 bodypart everypromotedthing item
+physiologicalcondition	 everypromotedthing abstractthing
+politician	 person everypromotedthing humanagent agent
+meat	 everypromotedthing item food
+magazine	 mediacompany everypromotedthing organization humanagent company agent publication
+skyscraper	 location building everypromotedthing geolocatablething
+park	 attraction location everypromotedthing geolocatablething
+militaryconflict	 everypromotedthing abstractthing event militaryeventtype
+monument	 attraction location building everypromotedthing geolocatablething
+criminal	 person everypromotedthing humanagent agent
+mountainrange	 location everypromotedthing
+candy	 everypromotedthing item food
+profession	 everypromotedthing abstractthing
