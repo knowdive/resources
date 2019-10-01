@@ -31,7 +31,6 @@
 ### a. Create a directory to contain the site’s config files:
     sudo mkdir -p /etc/ckan/default
     sudo chown -R 'whoami' /etc/ckan/
-    sudo chown -R 'whoami' ~/ckan/etc
 ### b. Create the CKAN config file:
     paster make-config ckan /etc/ckan/default/development.ini
 ### c. Edit the ``development.ini`` file in a text editor, changing the following options:
@@ -61,15 +60,15 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     JETTY_PORT=8983       # (line 19)
 ### d. Start or restart the Jetty server.
     sudo service jetty9 restart
-        You should now see a welcome page from Solr if you open http://localhost:8983/solr/
+        You should now see a welcome page from Solr if you open http://localhost:8983/solr/, otherwise there is an error but continue with the following steps
 ### e. Replace the default ``schema.xml`` file with a symlink to the CKAN schema file included in the sources.
     sudo mv /etc/solr/conf/schema.xml /etc/solr/conf/schema.xml.bak
     sudo ln -s /usr/lib/ckan/default/src/ckan/ckan/config/solr/schema.xml /etc/solr/conf/schema.xml
-### f. Now restart Solr:
-    sudo service jetty9 restart
-        Check that Solr is running by opening http://localhost:8983/solr/.
-### g. Finally, change the solr_url setting in your CKAN configuration file (``/etc/ckan/default/development.ini``, ``/etc/ckan/default/production.ini``) to point to your Solr server, for example:
+### f. Finally, change the solr_url setting in your CKAN configuration file (``/etc/ckan/default/development.ini``) to point to your Solr server, for example:
     solr_url=http://127.0.0.1:8983/solr
+### g. Now restart Solr:
+    sudo service jetty9 restart
+        Check that Solr is running by opening http://localhost:8983/solr/. If it is then continue directly with the steps of 6, otherwise there is an error so continue with all the following steps of 5
 
 ### h. Make the following solr updates:
     sudo mkdir /etc/systemd/system/jetty9.service.d
@@ -176,6 +175,29 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     paster serve --reload /etc/ckan/default/development.ini
 ### Open the CKAN front page in your web browser. If your plugin is in the ckan.plugins setting and CKAN starts without crashing, then your plugin is installed and CKAN can find it. Of course, your plugin doesn’t do anything yet.
 
+## 2. Use custom theme from our [repository](https://github.com/knowdive/ckanext-liveschema_theme)
+### a. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
+    cd /usr/lib/ckan/default/src
+    git clone https://github.com/knowdive/ckanext-liveschema_theme
+
+## 3. Set up [ckanext-pages](https://github.com/ckan/ckanext-pages)
+### This extension gives you an easy way to add simple pages to CKAN.
+### a. Use pip to install this plugin with the virtual environment active
+    . /usr/lib/ckan/default/bin/activate
+    cd /usr/lib/ckan/default/src
+    pip install -e 'git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages'
+### b. Add pages to ckan.plugins in the ``/etc/ckan/default/development.ini`` config file:
+    ckan.plugins = ... pages
+### c. Add the following configuration lines in the ``/etc/ckan/default/development.ini`` config file:
+    ## ckanext-pages 
+    ckanext.pages.organization = True
+    ckanext.pages.group = True
+    ckanext.pages.organization_menu = False
+    ckanext.pages.group_menu = False
+    ckanext.pages.about_menu = False
+    ckanext.pages.allow_html = True
+    ckanext.pages.editor = ckeditor
+
 # C - CKAN + DCAT
 ## This extension provides plugins that allow CKAN to expose and consume metadata from other catalogs using RDF documents serialized using DCAT. The Data Catalog Vocabulary (DCAT) is “an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web”. More information can be found on the following W3C page: http://www.w3.org/TR/vocab-dcat
 ## 1. Install ckanext-harvest (https://github.com/ckan/ckanext-harvest#installation) (Only if you want to use the RDF harvester)
@@ -193,7 +215,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     cd /usr/lib/ckan/default/src/ckanext-harvest/
     pip install -r pip-requirements.txt
 ### f. Make sure the CKAN configuration ini file contains the harvest main plugin, as well as the harvester for CKAN instances if you need it (included with the extension):
-    ckan.plugins = harvest ckan_harvester
+    ckan.plugins = ... harvest ckan_harvester
 ### There are a number of configuration options available for the backends. These don't need to be modified at all if you are using the default Redis or RabbitMQ install (step 1). However you may wish to add them with custom options to the into the CKAN config file the [app:main] section. The list below shows the available options and their default values:
 ### Redis:
     ckan.harvest.mq.hostname (localhost)
