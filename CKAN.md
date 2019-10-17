@@ -192,11 +192,33 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     ## ckanext-pages 
     ckanext.pages.organization = True
     ckanext.pages.group = True
-    ckanext.pages.organization_menu = False
     ckanext.pages.group_menu = False
     ckanext.pages.about_menu = False
     ckanext.pages.allow_html = True
     ckanext.pages.editor = ckeditor
+
+## 4. Improve the [translation](https://docs.ckan.org/en/2.8/contributing/i18n.html#manual-setup)
+### a. Preparation
+    . /usr/lib/ckan/default/bin/activate
+    cd /usr/lib/ckan/default/src/ckan
+
+### b. Install Babel
+    pip install --upgrade Babel
+
+### c. Create a ‘po’ file for your language
+    python setup.py init_catalog --locale en_GB
+
+### d. Get the translation from https://raw.githubusercontent.com/knowdive/resources/master/ckan.po
+### to ``/usr/lib/ckan/default/src/ckan/ckan/i18n/en_GB/LC_MESSAGES/ckan.po``
+
+### e. Compile the translation
+    python setup.py compile_catalog --locale en_GB
+
+### f. Overwrite the Internationalisation settings of the ``/etc/ckan/default/development.ini`` config file:
+    ## Internationalisation Settings
+    ckan.locale_default = en_GB
+    ckan.locales_offered = en_GB
+
 
 # C - CKAN + DCAT
 ## This extension provides plugins that allow CKAN to expose and consume metadata from other catalogs using RDF documents serialized using DCAT. The Data Catalog Vocabulary (DCAT) is “an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web”. More information can be found on the following W3C page: http://www.w3.org/TR/vocab-dcat

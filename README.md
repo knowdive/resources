@@ -6,3 +6,4 @@ In this repository you can find 3 Excel Files and a folder Vocabularies:
  - CKAN.md: this file contains a detailed guide to the installation of CKAN
  - Vocabularies: contains vocabularies not present on LOV and not directly retrievable from the web
  - UMLActivityDiagrams: contains the Activity Diagrams of the processes
+ - ckan.po: custom translation of CKAN
