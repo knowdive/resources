@@ -178,7 +178,10 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ## 2. Use custom theme from our [repository](https://github.com/knowdive/ckanext-liveschema_theme)
 ### a. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
     cd /usr/lib/ckan/default/src
-    git clone https://github.com/knowdive/ckanext-liveschema_theme
+    git clone https://github.com/knowdive/ckanext-liveschema_theme.git
+    cd ckanext-liveschema_theme
+    python setup.py develop
+    pip install -r requirements.txt
 
 ## 3. Set up [ckanext-pages](https://github.com/ckan/ckanext-pages)
 ### This extension gives you an easy way to add simple pages to CKAN.
@@ -218,6 +221,38 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     ## Internationalisation Settings
     ckan.locale_default = en_GB
     ckan.locales_offered = en_GB
+
+## 5. Fix CKAN base code
+### a. Show private packages in package_list: Edit the line 133 in /usr/lib/ckan/default/src/ckan/ckan/logic/action/get.py 
+    #package_table.c.private == False, # Also show private datasets on package_list results
+### b. Show private packages in package_search: Edit the line 1826 in /usr/lib/ckan/default/src/ckan/ckan/logic/action/get.py 
+    query.run(data_dict, permission_labels=None) # Do not enforce permission filter based on user for the package_search
+### c Show correct error code on package_read: Edit the lines 388-389 in /usr/lib/ckan/default/src/ckan/ckan/controllers/package.py 
+        except NotAuthorized:
+            abort(403, _('Unauthorized to read package %s') % id)
+        except NotFound:
+            abort(404, _('Dataset not found'))
+### d. Allow everyone to see private datasets: Edit the lines 384-390 in /usr/lib/ckan/default/src/ckan/ckan/controllers/package.py 
+    """
+    # Allow members of organizations to see private datasets.
+    if group_.is_organization:
+        is_group_member = (context.get('user') and
+            authz.has_user_permission_for_group_or_org(
+                group_.id, context.get('user'), 'read'))
+        if is_group_member:
+            q['include_private'] = True
+    """                    
+    # Allow everyone to see private datasets
+    q['include_private'] = True
+### e. Fix timeout issue for background jobs: update the line 126 and 151 respectively in /usr/lib/ckan/default/src/ckan/ckan/lib/jobs.py with the following
+    def enqueue(fn, args=None, kwargs=None, title=None, queue=DEFAULT_QUEUE_NAME, timeout=180):
+        job = get_queue(queue).enqueue_call(func=fn, args=args, kwargs=kwargs, timeout=timeout)
+### f. Reload the process in order for the changes to take effect
+    paster serve --reload /etc/ckan/default/development.ini
+
+## 6. [Background jobs](https://docs.ckan.org/en/2.8/maintaining/background-tasks.html#running-background-jobs)
+### a. Running background jobs (let this command to run for it to execute background jobs)
+    paster --plugin=ckan jobs worker --config=/etc/ckan/default/development.ini
 
 
 # C - CKAN + DCAT
