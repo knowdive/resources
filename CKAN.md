@@ -225,14 +225,14 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ## 5. Fix CKAN base code
 ### a. Show private packages in package_list: Edit the line 133 in /usr/lib/ckan/default/src/ckan/ckan/logic/action/get.py 
     #package_table.c.private == False, # Also show private datasets on package_list results
-### b. Show private packages in package_search: Edit the line 1826 in /usr/lib/ckan/default/src/ckan/ckan/logic/action/get.py 
+### b. Show private packages in package_search: Edit the line 1862 in /usr/lib/ckan/default/src/ckan/ckan/logic/action/get.py 
     query.run(data_dict, permission_labels=None) # Do not enforce permission filter based on user for the package_search
 ### c Show correct error code on package_read: Edit the lines 388-389 in /usr/lib/ckan/default/src/ckan/ckan/controllers/package.py 
         except NotAuthorized:
             abort(403, _('Unauthorized to read package %s') % id)
         except NotFound:
             abort(404, _('Dataset not found'))
-### d. Allow everyone to see private datasets: Edit the lines 384-390 in /usr/lib/ckan/default/src/ckan/ckan/controllers/package.py 
+### d. Allow everyone to see private datasets: Edit the lines 384-390 in /usr/lib/ckan/default/src/ckan/ckan/lib/dictization/model_dictize.py 
     """
     # Allow members of organizations to see private datasets.
     if group_.is_organization:
