@@ -176,7 +176,9 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ### Open the CKAN front page in your web browser. If your plugin is in the ckan.plugins setting and CKAN starts without crashing, then your plugin is installed and CKAN can find it. Of course, your plugin doesn’t do anything yet.
 
 ## 2. Use custom theme from our [repository](https://github.com/knowdive/ckanext-liveschema_theme)
-### a. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
+### b. Install required packages
+    sudo apt-get install zlib1g-dev bzip2 libbz2-dev liblzma-dev
+### b. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
     cd /usr/lib/ckan/default/src
     git clone https://github.com/knowdive/ckanext-liveschema_theme.git
     cd ckanext-liveschema_theme
@@ -248,6 +250,8 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     def enqueue(fn, args=None, kwargs=None, title=None, queue=DEFAULT_QUEUE_NAME, timeout=180):
         job = get_queue(queue).enqueue_call(func=fn, args=args, kwargs=kwargs, timeout=timeout)
 ### f. Reload the process in order for the changes to take effect
+    cd /usr/lib/ckan/default/src/ckan
+    python setup.py develop
     paster serve --reload /etc/ckan/default/development.ini
 
 ## 6. [Background jobs](https://docs.ckan.org/en/2.8/maintaining/background-tasks.html#running-background-jobs)
