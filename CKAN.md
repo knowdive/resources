@@ -298,7 +298,10 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     cd /usr/lib/ckan/default/src/ckanext-dcat/
     pip install -r requirements.txt
 ### 4. Enable the required plugins in your ini file(``development.ini``):
-    ckan.plugins = dcat dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data
+    ckan.plugins = ... dcat dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data
+### 5. Edit the configuration of the extension adding the following lines to the file ``/etc/ckan/default/development.ini``
+    ## CKAN ♥ DCAT
+    ckanext.dcat.datasets_per_page = 10000
 
 # D - [DataPusher - Automatically add Data to the CKAN DataStore](https://docs.ckan.org/projects/datapusher/en/latest/)
 ## This application is a service that adds automatic CSV/Excel file loading to CKAN.
@@ -321,7 +324,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ## If you need to change the host or port, copy deployment/datapusher_settings.py to deployment/datapusher_local_settings.py and modify the file.
 
 ## 5. CKAN Configuration
-### a. In order to tell CKAN where this webservice is located, the following must be added to the [app:main] section of your CKAN configuration file (generally located at /etc/ckan/default/development.ini):
+### a. In order to tell CKAN where this webservice is located, the following must be added to the [app:main] section of your CKAN configuration file (generally located at ``/etc/ckan/default/development.ini``):
     ckan.datapusher.url = http://0.0.0.0:8800/
 ### b. The DataPusher also requires the ckan.site_url configuration option to be set on your configuration file:
     ckan.site_url = http://127.0.0.1:5000
@@ -345,3 +348,122 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 
 # Z - [Deploying a source install](https://docs.ckan.org/en/2.8/maintaining/installing/deployment.html)
 ## If you want to use your CKAN site as a production site, not just for testing or development purposes, then deploy CKAN using a production web server such as Apache or Nginx.
+
+## 1. Create a production.ini File
+### Create your site’s production.ini file, by copying the development.ini file you created in Installing CKAN from source earlier:
+    cp /etc/ckan/default/development.ini /etc/ckan/default/production.ini
+
+## 2. Install Apache, modwsgi, modrpaf
+### Install Apache (a web server), modwsgi (an Apache module that adds WSGI support to Apache), and modrpaf (an Apache module that sets the right IP address when there is a proxy forwarding to Apache):
+    sudo apt-get install apache2 libapache2-mod-wsgi libapache2-mod-rpaf
+
+## 3. Install Nginx
+### Install Nginx (a web server) which will proxy the content from Apache and add a layer of caching:
+    sudo apt-get install nginx
+
+## 4. Install an email server
+### If one isn’t installed already, install an email server to enable CKAN’s email features (such as sending traceback emails to sysadmins when crashes occur, or sending new activity email notifications to users). For example, to install the Postfix email server, do:
+    sudo apt-get install postfix
+### When asked to choose a Postfix configuration, choose Internet Site and press return.
+
+## 5. Create the WSGI script file
+### Create your site’s WSGI script file /etc/ckan/default/apache.wsgi with the following contents:
+    import os
+    activate_this = os.path.join('/usr/lib/ckan/default/bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+
+    from paste.deploy import loadapp
+    config_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'production.ini')
+    from paste.script.util.logging_config import fileConfig
+    fileConfig(config_filepath)
+    application = loadapp('config:%s' % config_filepath)
+    The modwsgi Apache module will redirect requests to your web server to this WSGI script file. The script file then handles those requests by directing them on to your CKAN instance (after first configuring the Python environment for CKAN to run in).
+
+## 6. Create the Apache config file
+### Create your site’s Apache config file at /etc/apache2/sites-available/ckan_default.conf, with the following contents:
+
+    <VirtualHost 127.0.0.1:8080>
+        ServerName liveschema.org
+        ServerAlias www.liveschema.org
+        WSGIScriptAlias / /etc/ckan/default/apache.wsgi
+
+        # Pass authorization info on (needed for rest api).
+        WSGIPassAuthorization On
+
+        # Deploy as a daemon (avoids conflicts between CKAN instances).
+        WSGIDaemonProcess ckan_default display-name=ckan_default processes=2 threads=15
+
+        WSGIProcessGroup ckan_default
+
+        ErrorLog /var/log/apache2/ckan_default.error.log
+        CustomLog /var/log/apache2/ckan_default.custom.log combined
+
+        <IfModule mod_rpaf.c>
+            RPAFenable On
+            RPAFsethostname On
+            RPAFproxy_ips 127.0.0.1
+        </IfModule>
+
+        <Directory />
+            Require all granted
+        </Directory>
+
+    </VirtualHost>
+
+### This tells the Apache modwsgi module to redirect any requests to the web server to the WSGI script that you created above. Your WSGI script in turn directs the requests to your CKAN instance.
+
+## 7. Modify the Apache ports.conf file
+### Open /etc/apache2/ports.conf. We need to replace the default port 80 with the 8080 one.
+### On Apache 2.4 (eg Ubuntu 18.04 or RHEL 7):
+### Replace this line:
+    Listen 80
+### With this one:
+    Listen 8080
+
+## 8. Create the Nginx config file
+### Create your site’s Nginx config file at /etc/nginx/sites-available/ckan, with the following contents:
+    proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
+    proxy_temp_path /tmp/nginx_proxy 1 2;
+
+    server {
+        client_max_body_size 100M;
+        location / {
+            proxy_pass http://127.0.0.1:8080/;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header Host $host;
+            proxy_cache cache;
+            proxy_cache_bypass $cookie_auth_tkt;
+            proxy_no_cache $cookie_auth_tkt;
+            proxy_cache_valid 30m;
+            proxy_cache_key $host$scheme$proxy_host$request_uri;
+            # In emergency comment out line to force caching
+            # proxy_ignore_headers X-Accel-Expires Expires Cache-Control;
+        }
+
+    }
+
+## 9. Enable your CKAN site
+### To prevent conflicts, disable your default nginx and apache sites. Finally, enable your CKAN site in Apache:
+
+    sudo a2ensite ckan_default
+    sudo a2dissite 000-default
+    sudo rm -vi /etc/nginx/sites-enabled/default
+    sudo ln -s /etc/nginx/sites-available/ckan /etc/nginx/sites-enabled/ckan_default
+    sudo service apache2 reload
+    sudo service nginx reload
+### You should now be able to visit your server in a web browser and see your new CKAN instance.
+
+## 10. Setup a worker for background jobs
+### CKAN uses asynchronous Background jobs for long tasks. These jobs are executed by a separate process which is called a worker.
+### To run the worker in a robust way, install and configure Supervisor.
+### a. First install Supervisor:
+    sudo apt-get install supervisor
+### b. Next copy the configuration file template:
+    sudo cp /usr/lib/ckan/default/src/ckan/ckan/config/supervisor-ckan-worker.conf /etc/supervisor/conf.d
+### c. Open /etc/supervisor/conf.d/supervisor-ckan-worker.conf in your favourite text editor and make sure all the settings suit your needs. If you installed CKAN in a non-default location (somewhere other than /usr/lib/ckan/default) then you will need to update the paths in the config file (see the comments in the file for details).
+### d. Restart Supervisor:
+    sudo service supervisor restart
+### e. The worker should now be running. To check its status, use
+    sudo supervisorctl status
+### f. You can restart the worker via
+    sudo supervisorctl restart ckan-worker:*
