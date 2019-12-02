@@ -105,7 +105,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     systemctl daemon-reload
 
 ### l. Download a fix for the lucene error
-    wget https://github.com/boffomarco/lucene3.6.2-core-fix/raw/master/lucene3-core-3.6.2.jar -P ~/Downloads/
+    wget https://github.com/knowdive/resources/raw/master/lucene3-core-3.6.2.jar -P ~/Downloads/
 ### m. Copy the fix to the java directory
     cp ~/Downloads/lucene3-core-3.6.2.jar /usr/share/java/lucene3-core-3.6.2.jar
 ### k. Restart jetty9 
@@ -337,7 +337,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     sudo mkdir -p /var/lib/ckan/default
 ### b. Add the following line to your CKAN config file, after the ``[app:main]`` line:
     ckan.storage_path = /var/lib/ckan/default
-    ckan.max_resource_size = 100
+    ckan.max_resource_size = 1000
 ### c. Set the permissions of your ckan.storage_path directory. For example if you’re running CKAN with Apache, then Apache’s user (www-data on Ubuntu) must have read, write and execute permissions for the ``ckan.storage_path``:
     sudo chown www-data /var/lib/ckan/default
     sudo chown -R `whoami` /var/lib/ckan/default
