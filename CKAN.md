@@ -302,7 +302,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ### 5. Edit the configuration of the extension adding the following lines to the file ``/etc/ckan/default/development.ini``
     ## CKAN ♥ DCAT
     ckanext.dcat.datasets_per_page = 10000
-### 6. Edit the file ``/usr/lib/ckan/default/src/ckanext-dcat/src/dcat/plugins.py`` at lines 118-122 with
+### 6. Edit the file ``/usr/lib/ckan/default/src/ckanext-dcat/ckanext/dcat/plugins.py`` at lines 118-122 with
     loop_dict = object_dict.copy()
     for key, value in loop_dict.iteritems():
         if key in field_labels:

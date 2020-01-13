@@ -564,7 +564,7 @@ msgstr "Graph type"
 
 #: ckanext/reclineview/theme/templates/recline_graph_form.html:7
 msgid "Group (Axis 1)"
-msgstr "Group (Axis 1)"
+msgstr "Persona (Axis 1)"
 
 #: ckanext/reclineview/theme/templates/recline_graph_form.html:8
 msgid "Series (Axis 2)"
@@ -660,12 +660,12 @@ msgstr "No edited datasets"
 #: ckanext/stats/templates/ckanext/stats/index.html:108
 #: ckanext/stats/templates/ckanext/stats/index.html:182
 msgid "Largest Groups"
-msgstr "Largest Groups"
+msgstr "Largest Personas"
 
 #: ckan/logic/converters.py:173 ckan/logic/validators.py:246
 #: ckanext/stats/templates/ckanext/stats/index.html:113
 msgid "Group"
-msgstr "Group"
+msgstr "Persona"
 
 #: ckanext/stats/templates/ckanext/stats/index.html:114
 msgid "Number of datasets"
@@ -908,7 +908,7 @@ msgstr "Request params must be in form of a json encoded dictionary."
 #: ckan/controllers/package.py:1280 ckan/logic/action/create.py:1373
 #: ckan/views/feed.py:143
 msgid "Group not found"
-msgstr "Group not found"
+msgstr "Persona not found"
 
 #: ckan/controllers/feed.py:245 ckan/logic/action/create.py:1373
 #: ckan/views/feed.py:160
@@ -944,7 +944,7 @@ msgstr "Catalogs"
 #: ckan/templates/revision/diff.html:16 ckan/templates/revision/read.html:84
 #: ckan/tests/config/test_middleware.py:632 ckan/views/home.py:47
 msgid "Groups"
-msgstr "Groups"
+msgstr "Personas"
 
 #: ckan/controllers/group.py:308 ckan/controllers/home.py:63
 #: ckan/controllers/package.py:258 ckan/lib/helpers.py:1038
@@ -1008,7 +1008,7 @@ msgstr "Catalogs has been deleted."
 
 #: ckan/controllers/group.py:623
 msgid "Group has been deleted."
-msgstr "Group has been deleted."
+msgstr "Persona has been deleted."
 
 #: ckan/controllers/group.py:625
 #, python-format
@@ -1037,7 +1037,7 @@ msgstr "Unauthorised to delete group %s members"
 
 #: ckan/controllers/group.py:738
 msgid "Group member has been deleted."
-msgstr "Group member has been deleted."
+msgstr "Persona member has been deleted."
 
 #: ckan/controllers/group.py:762 ckan/controllers/package.py:436
 msgid "Select two revisions before doing the comparison."
@@ -1045,11 +1045,11 @@ msgstr "Select two revisions before doing the comparison."
 
 #: ckan/controllers/group.py:786
 msgid "CKAN Group Revision History"
-msgstr "CKAN Group Revision History"
+msgstr "CKAN Persona Revision History"
 
 #: ckan/controllers/group.py:790
 msgid "Recent changes to CKAN Group: "
-msgstr "Recent changes to CKAN Group: "
+msgstr "Recent changes to CKAN Persona: "
 
 #: ckan/controllers/group.py:811 ckan/controllers/package.py:487
 msgid "Log message: "
@@ -1852,7 +1852,7 @@ msgstr "Duplicate key \"%s\""
 
 #: ckan/logic/validators.py:412
 msgid "Group name already exists in database"
-msgstr "Group name already exists in database"
+msgstr "Persona name already exists in database"
 
 #: ckan/logic/validators.py:418
 #, python-format
@@ -2192,7 +2192,7 @@ msgstr "Not authorised to create users"
 
 #: ckan/logic/auth/create.py:189
 msgid "Group was not found."
-msgstr "Group was not found."
+msgstr "Persona was not found."
 
 #: ckan/logic/auth/create.py:220
 #, python-format
@@ -3065,11 +3065,11 @@ msgstr "Administrators"
 
 #: ckan/templates/group/base_form_page.html:7
 msgid "Add a Group"
-msgstr "Add a Group"
+msgstr "Add a Persona"
 
 #: ckan/templates/group/base_form_page.html:11
 msgid "Group Form"
-msgstr "Group Form"
+msgstr "Persona Form"
 
 #: ckan/templates/group/confirm_delete.html:3
 #: ckan/templates/group/confirm_delete.html:15
@@ -3108,7 +3108,7 @@ msgstr "Manage"
 
 #: ckan/templates/group/edit.html:12
 msgid "Edit Group"
-msgstr "Edit Group"
+msgstr "Edit Persona"
 
 #: ckan/templates/group/edit_base.html:21 ckan/templates/group/members.html:3
 #: ckan/templates/organization/edit_base.html:24
@@ -3124,7 +3124,7 @@ msgstr "History"
 #: ckan/templates/group/index.html:13
 #: ckan/templates/user/dashboard_groups.html:7
 msgid "Add Group"
-msgstr "Add Group"
+msgstr "Add Persona"
 
 #: ckan/templates/group/index.html:20
 msgid "Search groups..."
@@ -3227,15 +3227,15 @@ msgstr ""
 #: ckan/templates/group/new.html:3 ckan/templates/group/new.html:5
 #: ckan/templates/group/new.html:7
 msgid "Create a Group"
-msgstr "Create a Group"
+msgstr "Create a Persona"
 
 #: ckan/templates/group/new_group_form.html:17
 msgid "Update Group"
-msgstr "Update Group"
+msgstr "Update Persona"
 
 #: ckan/templates/group/new_group_form.html:19
 msgid "Create Group"
-msgstr "Create Group"
+msgstr "Create Persona"
 
 #: ckan/templates/group/read.html:19 ckan/templates/organization/read.html:25
 #: ckan/templates/snippets/search_form.html:3
@@ -3259,7 +3259,7 @@ msgstr "Name"
 
 #: ckan/templates/group/snippets/group_form.html:10
 msgid "My Group"
-msgstr "My Group"
+msgstr "My Persona"
 
 #: ckan/templates/group/snippets/group_form.html:18
 msgid "my-group"
@@ -3271,11 +3271,11 @@ msgstr "A little information about my group..."
 
 #: ckan/templates/group/snippets/group_form.html:38
 msgid "Are you sure you want to delete this Group?"
-msgstr "Are you sure you want to delete this Group?"
+msgstr "Are you sure you want to delete this Persona?"
 
 #: ckan/templates/group/snippets/group_form.html:41
 msgid "Save Group"
-msgstr "Save Group"
+msgstr "Save Persona"
 
 #: ckan/templates/group/snippets/group_item.html:38
 #: ckan/templates/group/snippets/group_item.html:39
@@ -3288,7 +3288,7 @@ msgstr "Remove dataset from this group"
 
 #: ckan/templates/group/snippets/helper.html:4
 msgid "What are Groups?"
-msgstr "What are Groups?"
+msgstr "What are Personas?"
 
 #: ckan/templates/group/snippets/helper.html:8
 msgid ""
@@ -3297,7 +3297,7 @@ msgid ""
 "on a particular theme, or as a very simple way to help people find and "
 "search your own published datasets. "
 msgstr ""
-"You can use CKAN Groups to create and manage collections of datasets. "
+"You can use CKAN Personas to create and manage collections of datasets. "
 "This could be to catalogue datasets for a particular project or team, or "
 "on a particular theme, or as a very simple way to help people find and "
 "search your own published datasets. "
@@ -4536,7 +4536,7 @@ msgstr "My Catalogs"
 #: ckan/templates/user/dashboard.html:22
 #: ckan/templates/user/dashboard_groups.html:12
 msgid "My Groups"
-msgstr "My Groups"
+msgstr "My Personas"
 
 #: ckan/templates/user/dashboard.html:39
 msgid "Activity from items that I'm following"
@@ -4836,4 +4836,3 @@ msgstr "Search Users"
 #: ckan/views/user.py:588
 msgid "Your password must be 8 characters or longer."
 msgstr ""
-
