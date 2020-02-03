@@ -430,7 +430,7 @@ msgstr "This is an untranslated string"
 #: ckanext/example_theme_docs/v10_custom_snippet/templates/snippets/example_theme_most_popular_groups.html:20
 #: ckanext/example_theme_docs/v11_HTML_and_CSS/templates/snippets/example_theme_most_popular_groups.html:19
 msgid "This group has no description"
-msgstr "This group has no description"
+msgstr "This agent has no description"
 
 #: ckan/templates/group/snippets/group_item.html:32
 #: ckan/templates/organization/snippets/organization_item.html:31
@@ -673,7 +673,7 @@ msgstr "Number of datasets"
 
 #: ckanext/stats/templates/ckanext/stats/index.html:127
 msgid "No groups"
-msgstr "No groups"
+msgstr "No agents"
 
 #: ckanext/stats/templates/ckanext/stats/index.html:132
 #: ckanext/stats/templates/ckanext/stats/index.html:183
@@ -917,7 +917,7 @@ msgstr "Catalog not found"
 
 #: ckan/controllers/group.py:130 ckan/controllers/group.py:581
 msgid "Incorrect group type"
-msgstr "Incorrect group type"
+msgstr "Incorrect agent type"
 
 #: ckan/controllers/group.py:306 ckan/controllers/home.py:61
 #: ckan/controllers/package.py:256 ckan/lib/helpers.py:1036
@@ -982,7 +982,7 @@ msgstr "Not authorised to perform bulk update"
 
 #: ckan/controllers/group.py:461
 msgid "Unauthorized to create a group"
-msgstr "Unauthorised to create a group"
+msgstr "Unauthorised to create an agent"
 
 #: ckan/controllers/group.py:539 ckan/controllers/group.py:569
 #: ckan/controllers/package.py:944 ckan/controllers/package.py:992
@@ -1000,7 +1000,7 @@ msgstr "User %r not authorised to edit %s authorisations"
 #: ckan/controllers/group.py:615 ckan/controllers/group.py:630
 #, python-format
 msgid "Unauthorized to delete group %s"
-msgstr "Unauthorised to delete group %s"
+msgstr "Unauthorised to delete agent %s"
 
 #: ckan/controllers/group.py:621
 msgid "Organization has been deleted."
@@ -1023,17 +1023,17 @@ msgstr "User %r not authorised to edit members of %s"
 #: ckan/controllers/group.py:670
 #, python-format
 msgid "Unauthorized to create group %s members"
-msgstr ""
+msgstr "Unauthorized to create agent %s members"
 
 #: ckan/controllers/group.py:712
 #, python-format
 msgid "Unauthorized to add member to group %s"
-msgstr "Unauthorised to add member to group %s"
+msgstr "Unauthorised to add member to agent %s"
 
 #: ckan/controllers/group.py:731 ckan/controllers/group.py:744
 #, python-format
 msgid "Unauthorized to delete group %s members"
-msgstr "Unauthorised to delete group %s members"
+msgstr "Unauthorised to delete agent %s members"
 
 #: ckan/controllers/group.py:738
 msgid "Group member has been deleted."
@@ -1413,7 +1413,7 @@ msgstr "{actor} added the tag {tag} to the dataset {dataset}"
 
 #: ckan/lib/activity_streams.py:63
 msgid "{actor} updated the group {group}"
-msgstr "{actor} updated the group {group}"
+msgstr "{actor} updated the agent {group}"
 
 #: ckan/lib/activity_streams.py:66
 msgid "{actor} updated the organization {organization}"
@@ -1437,7 +1437,7 @@ msgstr "{actor} updated their profile"
 
 #: ckan/lib/activity_streams.py:81
 msgid "{actor} deleted the group {group}"
-msgstr "{actor} deleted the group {group}"
+msgstr "{actor} deleted the agent {group}"
 
 #: ckan/lib/activity_streams.py:84
 msgid "{actor} deleted the organization {organization}"
@@ -1457,7 +1457,7 @@ msgstr "{actor} deleted the resource {resource} from the dataset {dataset}"
 
 #: ckan/lib/activity_streams.py:97
 msgid "{actor} created the group {group}"
-msgstr "{actor} created the group {group}"
+msgstr "{actor} created the agent {group}"
 
 #: ckan/lib/activity_streams.py:100
 msgid "{actor} created the organization {organization}"
@@ -1705,7 +1705,7 @@ msgstr "catalog"
 
 #: ckan/lib/mailer.py:135 ckan/templates/home/snippets/stats.html:23
 msgid "group"
-msgstr "group"
+msgstr "agent"
 
 #: ckan/lib/navl/dictization_functions.py:16
 #: ckan/lib/navl/dictization_functions.py:19
@@ -1794,7 +1794,7 @@ msgstr "Resource"
 
 #: ckan/logic/validators.py:256
 msgid "That group name or ID does not exist."
-msgstr "That group name or ID does not exist."
+msgstr "That agent name or ID does not exist."
 
 #: ckan/logic/validators.py:270
 msgid "Activity type"
@@ -2003,7 +2003,7 @@ msgstr "REST API: Create member object %s"
 
 #: ckan/logic/action/create.py:807
 msgid "Trying to create an organization as a group"
-msgstr "Trying to create an catalog as a group"
+msgstr "Trying to create an catalog as a agent"
 
 #: ckan/logic/action/create.py:896
 msgid "You must supply a package id or name (parameter \"package\")."
@@ -2049,7 +2049,7 @@ msgstr "User {username} does not exist."
 
 #: ckan/logic/action/create.py:1454 ckan/logic/action/create.py:1462
 msgid "You must be logged in to follow a group."
-msgstr "You must be logged in to follow a group."
+msgstr "You must be logged in to follow a agent."
 
 #: ckan/logic/action/delete.py:54
 msgid " Delete User: {0}"
@@ -2146,7 +2146,7 @@ msgstr "User %s not authorised to create packages"
 #: ckan/logic/auth/create.py:31 ckan/logic/auth/update.py:45
 #, python-format
 msgid "User %s not authorized to edit these groups"
-msgstr "User %s not authorised to edit these groups"
+msgstr "User %s not authorised to edit these agents"
 
 #: ckan/logic/auth/create.py:38
 #, python-format
@@ -2175,7 +2175,7 @@ msgstr "User %s not authorised to edit these packages"
 #: ckan/logic/auth/create.py:119
 #, python-format
 msgid "User %s not authorized to create groups"
-msgstr "User %s not authorised to create groups"
+msgstr "User %s not authorised to create agents"
 
 #: ckan/logic/auth/create.py:129
 #, python-format
@@ -2202,7 +2202,7 @@ msgstr "User %s not authorised to add members"
 #: ckan/logic/auth/create.py:244 ckan/logic/auth/update.py:115
 #, python-format
 msgid "User %s not authorized to edit group %s"
-msgstr "User %s not authorised to edit group %s"
+msgstr "User %s not authorised to edit agent %s"
 
 #: ckan/logic/auth/delete.py:40
 #, python-format
@@ -2221,12 +2221,12 @@ msgstr "User %s not authorised to delete relationship %s"
 #: ckan/logic/auth/delete.py:82
 #, python-format
 msgid "User %s not authorized to delete groups"
-msgstr "User %s not authorised to delete groups"
+msgstr "User %s not authorised to delete agents"
 
 #: ckan/logic/auth/delete.py:86
 #, python-format
 msgid "User %s not authorized to delete group %s"
-msgstr "User %s not authorised to delete group %s"
+msgstr "User %s not authorised to delete agent %s"
 
 #: ckan/logic/auth/delete.py:103
 #, python-format
@@ -2265,7 +2265,7 @@ msgstr "User %s not authorised to read resource %s"
 #: ckan/logic/auth/get.py:170
 #, python-format
 msgid "User %s not authorized to read group %s"
-msgstr "User %s not authorised to read group %s"
+msgstr "User %s not authorised to read agent %s"
 
 #: ckan/logic/auth/get.py:237
 msgid "You must be logged in to access your dashboard."
@@ -2294,12 +2294,12 @@ msgstr "User %s not authorised to edit catalog %s"
 #: ckan/logic/auth/update.py:145
 #, python-format
 msgid "User %s not authorized to change state of group %s"
-msgstr "User %s not authorised to change state of group %s"
+msgstr "User %s not authorised to change state of agent %s"
 
 #: ckan/logic/auth/update.py:162
 #, python-format
 msgid "User %s not authorized to edit permissions of group %s"
-msgstr "User %s not authorised to edit permissions of group %s"
+msgstr "User %s not authorised to edit permissions of agent %s"
 
 #: ckan/logic/auth/update.py:190
 msgid "Have to be logged in to edit user"
@@ -3128,11 +3128,11 @@ msgstr "Add Agent"
 
 #: ckan/templates/group/index.html:20
 msgid "Search groups..."
-msgstr "Search groups..."
+msgstr "Search agents..."
 
 #: ckan/templates/group/index.html:29
 msgid "There are currently no groups for this site"
-msgstr "There are currently no groups for this site"
+msgstr "There are currently no agents for this site"
 
 #: ckan/templates/group/index.html:31 ckan/templates/organization/index.html:31
 msgid "How about creating one?"
@@ -3220,9 +3220,9 @@ msgid ""
 " organization members.</p> <p><strong>Member:</strong> Can add/remove "
 "datasets from groups</p> "
 msgstr ""
-" <p><strong>Admin:</strong> Can edit group information, as well as manage"
+" <p><strong>Admin:</strong> Can edit agent information, as well as manage"
 " catalog members.</p> <p><strong>Member:</strong> Can add/remove "
-"datasets from groups</p> "
+"datasets from agents</p> "
 
 #: ckan/templates/group/new.html:3 ckan/templates/group/new.html:5
 #: ckan/templates/group/new.html:7
@@ -3244,7 +3244,7 @@ msgstr "Search datasets..."
 
 #: ckan/templates/group/snippets/feeds.html:3
 msgid "Datasets in group: {group}"
-msgstr "Datasets in group: {group}"
+msgstr "Datasets in agent: {group}"
 
 #: ckan/templates/group/snippets/feeds.html:4
 #: ckan/templates/organization/snippets/feeds.html:4
@@ -3263,11 +3263,11 @@ msgstr "My Agent"
 
 #: ckan/templates/group/snippets/group_form.html:18
 msgid "my-group"
-msgstr "my-group"
+msgstr "my-agent"
 
 #: ckan/templates/group/snippets/group_form.html:20
 msgid "A little information about my group..."
-msgstr "A little information about my group..."
+msgstr "A little information about my agent..."
 
 #: ckan/templates/group/snippets/group_form.html:38
 msgid "Are you sure you want to delete this Group?"
@@ -3284,7 +3284,7 @@ msgstr "View {name}"
 
 #: ckan/templates/group/snippets/group_item.html:43
 msgid "Remove dataset from this group"
-msgstr "Remove dataset from this group"
+msgstr "Remove dataset from this agent"
 
 #: ckan/templates/group/snippets/helper.html:4
 msgid "What are Groups?"
@@ -3387,7 +3387,7 @@ msgstr ""
 "of robust data APIs). CKAN is aimed at data publishers (national and "
 "regional governments, companies and catalog) wanting to make their "
 "data open and available.</p> <p>CKAN is used by governments and user "
-"groups worldwide and powers a variety of official and community data "
+"agents worldwide and powers a variety of official and community data "
 "portals including portals for local, national and international "
 "government, such as the UK’s <a "
 "href=\"http://data.gov.uk\">data.gov.uk</a> and the European Union’s <a "
@@ -3450,7 +3450,7 @@ msgstr "catalogs"
 
 #: ckan/templates/home/snippets/stats.html:23
 msgid "groups"
-msgstr "groups"
+msgstr "agents"
 
 #: ckan/templates/macros/form.html:126
 #, python-format
@@ -3732,15 +3732,15 @@ msgstr "Update"
 
 #: ckan/templates/package/group_list.html:14
 msgid "Associate this group with this dataset"
-msgstr "Associate this group with this dataset"
+msgstr "Associate this agent with this dataset"
 
 #: ckan/templates/package/group_list.html:14
 msgid "Add to group"
-msgstr "Add to group"
+msgstr "Add to agent"
 
 #: ckan/templates/package/group_list.html:23
 msgid "There are no groups associated with this dataset"
-msgstr "There are no groups associated with this dataset"
+msgstr "There are no agents associated with this dataset"
 
 #: ckan/templates/package/new_package_form.html:15
 msgid "Update Dataset"
@@ -4453,23 +4453,23 @@ msgstr "No datasets found"
 
 #: ckan/templates/snippets/search_result_text.html:21
 msgid "{number} group found for \"{query}\""
-msgid_plural "{number} groups found for \"{query}\""
-msgstr[0] "{number} group found for \"{query}\""
-msgstr[1] "{number} groups found for \"{query}\""
+msgid_plural "{number} agents found for \"{query}\""
+msgstr[0] "{number} agent found for \"{query}\""
+msgstr[1] "{number} agents found for \"{query}\""
 
 #: ckan/templates/snippets/search_result_text.html:22
 msgid "No groups found for \"{query}\""
-msgstr "No groups found for \"{query}\""
+msgstr "No agents found for \"{query}\""
 
 #: ckan/templates/snippets/search_result_text.html:23
 msgid "{number} group found"
-msgid_plural "{number} groups found"
-msgstr[0] "{number} group found"
-msgstr[1] "{number} groups found"
+msgid_plural "{number} agents found"
+msgstr[0] "{number} agent found"
+msgstr[1] "{number} agents found"
 
 #: ckan/templates/snippets/search_result_text.html:24
 msgid "No groups found"
-msgstr "No groups found"
+msgstr "No agents found"
 
 #: ckan/templates/snippets/search_result_text.html:27
 msgid "{number} organization found for \"{query}\""
@@ -4556,7 +4556,7 @@ msgstr "Create one now?"
 
 #: ckan/templates/user/dashboard_groups.html:20
 msgid "You are not a member of any groups."
-msgstr "You are not a member of any groups."
+msgstr "You are not a member of any agents."
 
 #: ckan/templates/user/dashboard_organizations.html:21
 msgid "You are not a member of any organizations."
@@ -4723,7 +4723,7 @@ msgstr "Why Sign Up?"
 
 #: ckan/templates/user/new.html:28
 msgid "Create datasets, groups and other exciting things"
-msgstr "Create datasets, groups and other exciting things"
+msgstr "Create datasets, agents, and other exciting things"
 
 #: ckan/templates/user/new_user_form.html:5
 msgid "username"
