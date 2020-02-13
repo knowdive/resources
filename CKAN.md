@@ -171,7 +171,9 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     python setup.py develop
 ### e. Add the plugin to the ckan.plugins setting in your ``/etc/ckan/default/development.ini`` file:
     ckan.plugins = stats text_view recline_view ... liveschema_theme
-### f. Start CKAN in the development web server:
+### f. Uncomment the following line in the ``/etc/ckan/default/development.ini`` file:
+    licenses_group_url = http://licenses.opendefinition.org/licenses/groups/ckan.json
+### g. Start CKAN in the development web server:
     paster serve --reload /etc/ckan/default/development.ini
 ### Open the CKAN front page in your web browser. If your plugin is in the ckan.plugins setting and CKAN starts without crashing, then your plugin is installed and CKAN can find it. Of course, your plugin doesn’t do anything yet.
 
