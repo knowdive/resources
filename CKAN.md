@@ -329,8 +329,21 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ## 3. Install the dependencies:
     pip install -r requirements.txt
     pip install -e .
-## 4. Set Max Resource Size to 100MB instead of 10MB, edit /usr/lib/ckan/default/src/datapusher/datapusher/jobs.py
-    MAX_CONTENT_LENGTH = web.app.config.get('MAX_CONTENT_LENGTH') or 104857600 #Line 31
+## 4. Edit /usr/lib/ckan/default/src/datapusher/datapusher/jobs.py
+### a. Set Max Resource Size to 256MB instead of 10MB
+    MAX_CONTENT_LENGTH = web.app.config.get('MAX_CONTENT_LENGTH') or 268435456 #Line 31
+### b. Add format control on pushing data of temp resources, add following lines at line 331
+    # Line 331
+    # check if the resource format is not temp
+    if resource.get('format') == 'temp':
+        logger.info('Do not load temp resources')
+        return
+    # check if the resource url_type is a datastore
+### c. Avoid casting errors by using text as input for the DataStore by editing line 470(or 475)
+    # Line 470 or 475
+    headers_dicts = [dict(id=field[0], type='text')
+                     for field in zip(headers, types)]
+
 ## 5. Run the DataPusher:
     cd /usr/lib/ckan/default/src/datapusher
     python datapusher/main.py deployment/datapusher_settings.py
@@ -340,10 +353,26 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ## 5. CKAN Configuration
 ### a. In order to tell CKAN where this webservice is located, the following must be added to the [app:main] section of your CKAN configuration file (generally located at ``/etc/ckan/default/development.ini``):
     ckan.datapusher.url = http://0.0.0.0:8800/
-### b. The DataPusher also requires the ckan.site_url configuration option to be set on your configuration file:
+### b. The DataPusher also requires the ckan.site_url configuration option to be set on your CKAN configuration file:
     ckan.site_url = http://127.0.0.1:5000
 #### c. If you are using at least CKAN 2.2, you just need to add datapusher to the plugins in your CKAN configuration file:
     ckan.plugins = <other plugins> datapusher
+#### d. Edit/Uncomment the following lines to change the formats handled by DataPusher in your CKAN configuration file:
+    # Define which views should be created by default
+    # (plugins must be loaded in ckan.plugins)
+    ckan.views.default_views = text_view image_view recline_view 
+
+    # Customize which text formats the text_view plugin will show
+    ckan.preview.json_formats = json
+    ckan.preview.xml_formats = xml rdf rdf+xml owl+xml atom rss xhtml rdfs text/turtle ttl
+    ckan.preview.text_formats = text plain text/plain nt n3 trix html nq trig 
+
+    # Customize which image formats the image_view plugin will show
+    ckan.preview.image_formats = png jpeg jpg gif
+
+    ckan.preview.loadable = html htm rdf+xml owl+xml xml n3 n-triples turtle plain atom csv tsv rss txt json ttl text/turtle fca cue vis 
+    
+    ckan.datapusher.formats = csv xls xlsx tsv application/csv application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet fca cue vis ttl rdf 
 
 ## 6. [File Upload](https://docs.ckan.org/en/2.8/maintaining/filestore.html)
 ### To setup CKAN’s FileStore with local file storage:
