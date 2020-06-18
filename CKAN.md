@@ -178,9 +178,11 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ### Open the CKAN front page in your web browser. If your plugin is in the ckan.plugins setting and CKAN starts without crashing, then your plugin is installed and CKAN can find it. Of course, your plugin doesn’t do anything yet.
 
 ## 2. Use custom theme from our [repository](https://github.com/knowdive/ckanext-liveschema_theme)
-### b. Install required packages
+### a. Install required packages
     sudo apt-get install zlib1g-dev bzip2 libbz2-dev liblzma-dev
-### b. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
+### b. Install required external library for KEmbedding (outside of virtualenv)
+    pip3 install pykeen
+### c. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
     cd /usr/lib/ckan/default/src
     git clone https://github.com/knowdive/ckanext-liveschema_theme.git
     cd ckanext-liveschema_theme
