@@ -220,7 +220,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ### d. Get the translation from https://raw.githubusercontent.com/knowdive/resources/master/ckan.po
 ### to ``/usr/lib/ckan/default/src/ckan/ckan/i18n/en_GB/LC_MESSAGES/ckan.po``
 
-### e. Compile the translation
+### e. Compile the translation executing from ``src/ckan/``
     python setup.py compile_catalog --locale en_GB
 
 ### f. Overwrite the Internationalisation settings of the ``/etc/ckan/default/development.ini`` config file:
@@ -332,8 +332,8 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     pip install -r requirements.txt
     pip install -e .
 ## 4. Edit /usr/lib/ckan/default/src/datapusher/datapusher/jobs.py
-### a. Set Max Resource Size to 256MB instead of 10MB
-    MAX_CONTENT_LENGTH = web.app.config.get('MAX_CONTENT_LENGTH') or 268435456 #Line 31
+### a. Set Max Resource Size to 300MB instead of 10MB
+    MAX_CONTENT_LENGTH = web.app.config.get('MAX_CONTENT_LENGTH') or 314572800 # i.e. 300 MB - Line 31 
 ### b. Add format control on pushing data of temp resources, add following lines at line 331
     # Line 331
     # check if the resource format is not temp
