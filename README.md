@@ -7,3 +7,5 @@ In this repository you can find 3 Excel Files and a folder Vocabularies:
  - Vocabularies: contains vocabularies not present on LOV and not directly retrievable from the web
  - UMLActivityDiagrams: contains the Activity Diagrams of the processes
  - ckan.po: custom translation of CKAN
+ - AlloyDefinitions: set of Alloy Definitions to translate from OWL to Alloy
+ - AlloyUtils: set of Alloy Utils to translate from OWL to Alloy with all the DataTypes and OWL types
