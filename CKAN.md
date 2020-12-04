@@ -182,12 +182,14 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     sudo apt-get install zlib1g-dev bzip2 libbz2-dev liblzma-dev
 ### b. Install required external library for KEmbedding (outside of virtualenv)
     pip3 install pykeen
-### c. Clone the repository to the folder with the other extensions(eventually remove the previous folder, if it's empty)
+### c. Clone the repository to the folder with the other extensions (eventually remove the previous folder, if it's empty)
     cd /usr/lib/ckan/default/src
     git clone https://github.com/knowdive/ckanext-liveschema_theme.git
     cd ckanext-liveschema_theme
     python setup.py develop
     pip install -r requirements.txt
+### d. Add/Update the following line to restrict registration of new users
+    ckan.auth.create_user_via_web = False
 
 ## 3. Set up [ckanext-pages](https://github.com/ckan/ckanext-pages)
 ### This extension gives you an easy way to add simple pages to CKAN.
@@ -427,9 +429,9 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ## 6. Create the Apache config file
 ### Create your site’s Apache config file at /etc/apache2/sites-available/ckan_default.conf, with the following contents:
 
-    <VirtualHost 127.0.0.1:8080>
-        ServerName liveschema.org
-        ServerAlias www.liveschema.org
+    <VirtualHost 127.0.0.1:8080> (? streambase7.disi.unitn.it)
+        ServerName liveschema.eu (? or www.liveschema.it , not yet www.liveschema.org)
+        ServerAlias www.liveschema.eu (? or www.liveschema.it , not yet www.liveschema.org)
         WSGIScriptAlias / /etc/ckan/default/apache.wsgi
 
         # Pass authorization info on (needed for rest api).
@@ -446,7 +448,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
         <IfModule mod_rpaf.c>
             RPAFenable On
             RPAFsethostname On
-            RPAFproxy_ips 127.0.0.1
+            RPAFproxy_ips 127.0.0.1 (? streambase7.disi.unitn.it)
         </IfModule>
 
         <Directory />
@@ -463,7 +465,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
 ### Replace this line:
     Listen 80
 ### With this one:
-    Listen 8080
+    Listen 8080 (? 5000)
 
 ## 8. Create the Nginx config file
 ### Create your site’s Nginx config file at /etc/nginx/sites-available/ckan, with the following contents:
@@ -473,7 +475,7 @@ Provide the site’s URL (used when putting links to the site into the FileStore
     server {
         client_max_body_size 100M;
         location / {
-            proxy_pass http://127.0.0.1:8080/;
+            proxy_pass http://127.0.0.1:8080/; (? 5000)
             proxy_set_header X-Forwarded-For $remote_addr;
             proxy_set_header Host $host;
             proxy_cache cache;
